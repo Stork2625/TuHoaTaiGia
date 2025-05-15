@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- Các kiến thức nâng cao cần học:
++Font-end:DOM nanipulation, event, callback,AJAX call,JSON  
++NODEJS: require, async io, node package,npm
++Database: MongoDB,SQL,MySQL
+ES6()=>{},{... abc}, async/await,Pronise -->
+<body>
+    <script>
+        //Hello word
+        document.write('Hello word<br>')
+        console.log('Hello') 
+        
+        //Bien
+        var name = ('Hoai Anh')
+        document.write(name + '<br>')
+        // co nhieu loai bien nhu string const boolean ....
+        //Toan tu
+        let fistNum = 10;
+        let secondNum = 10;
+        document.write(fistNum + secondNum + '<br>')
+        //or
+        fistNum = fistNum + 9;
+        document.write(fistNum + '<br>')
+        //or
+        fistNum = fistNum++;
+        document.write(fistNum + '<br>')
+        // or
+        fistNum = fistNum--;
+        document.write(fistNum + '<br>')
+        //Or
+        let fistText = ('Hoai');
+        let secondText = ('Anh');
+        document.write(fistText + secondText + '<br>')
+        //Doi tuong(object)
+        let doiTuong = {
+            name : 'HoaiAnh',
+            age:'20',
+            gender:'Nam',
+            address:'Hung Yen',
+            sing: function(){
+                document.write('Không học thì chỉ có bốc cứt mà ăn')
+            }
+        };
+        doiTuong.sing('<br>');
+        //funtion
+        function printToN(n){
+            for(let i = 1; i<= n; i++){
+                document.write(i+'<br>/')
+            }
+        }
+        printToN(11);
+
+    </script>
+</body>
+</html>
