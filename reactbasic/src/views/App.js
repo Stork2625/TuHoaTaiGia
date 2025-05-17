@@ -20,7 +20,7 @@ function App() {
           Learn React
         </a>
         <MyConponent/>
-        <MyConponent></MyConponent>
+        {/* <MyConponent></MyConponent> */}
       </header>
     </div>
   );
