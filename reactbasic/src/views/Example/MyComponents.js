@@ -13,7 +13,14 @@ class MyConponent extends React.Component{
     
     */
    handleClickButton = ()=>{
+    
     alert('click me')
+   }
+   handleOnChangeName = (event)=>{
+    //merge
+    this.setState({
+        name:event.target.value,
+    })
    }
     render(){
         
