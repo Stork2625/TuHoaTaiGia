@@ -1,51 +1,47 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
-  const[name, setName] = useState("")
-  const[age, setAge] = useState()
+  const[student,setStudent] = useState([
+    {id:1,name:"Hoai Anh", age:20},
+    {id:2,name:" Anh", age:20},
+    {id:3,name:"Hi Anh", age:20},
+    {id:4,name:"oai Anh", age:20},
+    {id:5,name:"Hai Anh", age:20},
+    {id:6,name:"Hoa Anh", age:20},
+    {id:7,name:"Hoai nh", age:20},
+    {id:8,name:"Hoai Ah", age:20},
+    {id:9,name:"Hoai An", age:20},
+  ])
   return (
     <View style={styles.container}>
-      <Text style={{fontSize:30,fontWeight:'bold'}}>
-      <View>
-        <Text style={{color:"Red", fontSize: 20, fontWeight:700}}> Name:{name}</Text>
-       <TextInput 
-        multiline
-        onChangeText={(value) => setName(value)}
-        style={{
-        borderColor: "green",
-        borderWidth: 3,
-        width: 200,
-        padding: 15,
-       }}/>
-        </View>
-       </Text>
-       <View>
-        <Text style={{color:"Red", fontSize: 20, fontWeight:700}}> Age:{age}</Text>
-       <TextInput 
-        multiline
-        onChangeText={(value) => setAge(value)}
-        style={{
-        borderColor: "green",
-        borderWidth: 3,
-        width: 200,
-        padding: 15,
-       }}
-       keyboardType='numeric'
-       maxLength={2}
-       />
-       
-      </View>      
+      
+        <Text>Hello word</Text>
+        <ScrollView>
+         {student.map(item =>{
+            return (
+              <View key={item.id} style={styles.array}>
+                  <Text>{item.name}</Text>
+              </View>
+            )
+         })}
+        </ScrollView>
     </View>
   );
 }
 //css in js
 const styles = StyleSheet.create({
   container: {
+    paddingTop:50,
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
+  array:{
+    backgroundColor:"pink",
+    padding:15,
+    marginBottom:30
+  }
 });
