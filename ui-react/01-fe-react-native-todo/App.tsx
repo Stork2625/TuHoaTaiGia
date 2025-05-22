@@ -1,28 +1,42 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
-  const[name, setName]= useState<String>("Hoai Anh");
-  const[test, setTest]= useState({
-    name: 'Minh Thu',
-    age: 20,
-  });
-
-  // lam dem
-  const[count, setCount]= useState(0);
+  const[name, setName] = useState("")
+  const[age, setAge] = useState()
   return (
     <View style={styles.container}>
       <Text style={{fontSize:30,fontWeight:'bold'}}>
-        {name}Hello word
-        {test.name}Hello word
-        {JSON.stringify(test)}Hello word
-        Count ={count}
-        <View>
-          <Button 
-          title='Enter' onPress={()=> setCount(count + 1)}/>
+      <View>
+        <Text style={{color:"Red", fontSize: 20, fontWeight:700}}> Name:{name}</Text>
+       <TextInput 
+        multiline
+        onChangeText={(value) => setName(value)}
+        style={{
+        borderColor: "green",
+        borderWidth: 3,
+        width: 200,
+        padding: 15,
+       }}/>
         </View>
-      </Text>
+       </Text>
+       <View>
+        <Text style={{color:"Red", fontSize: 20, fontWeight:700}}> Age:{age}</Text>
+       <TextInput 
+        multiline
+        onChangeText={(value) => setAge(value)}
+        style={{
+        borderColor: "green",
+        borderWidth: 3,
+        width: 200,
+        padding: 15,
+       }}
+       keyboardType='numeric'
+       maxLength={2}
+       />
+       
+      </View>      
     </View>
   );
 }
