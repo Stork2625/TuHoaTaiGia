@@ -21,12 +21,23 @@ const style = StyleSheet.create({
     width: 30,
     height: 30,
   },
-  buttoncontainer:{ 
-    backgroundColor:'#fff',
-    alignSelf:'flex-end',
-    width: 50,
-    height: 50,
-    marginTop:400
+  buttoncontainer: { 
+    width: 70,
+    height: 70,
+    position: 'absolute',
+    bottom: -230, // cách mép dưới 100 đơn vị, có thể điều chỉnh
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
+    elevation: 5,
+    borderRadius: 40, // làm tròn nút
+    borderWidth: 5,   // viền dày rõ
+    borderColor: '#fff', // màu viền trắng
+    backgroundColor: 'transparent', // trong suốt
   },
   preview:{
     alignSelf: 'stretch',
@@ -36,7 +47,7 @@ const style = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    padding:20,// khoảng trắng bên trong
+    padding:20,// khoảng trắng bên trong 
     margin: 20,  // khoảng trắng bên ngoài
     backgroundColor: '#fff', // giúp dễ nhìn nếu cần
     borderRadius: 90, // bo góc nhẹ nếu muốn đẹp hơn

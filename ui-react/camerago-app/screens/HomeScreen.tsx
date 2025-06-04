@@ -1,7 +1,7 @@
 import { NavigationProp, useNavigation } from '@react-navigation/native';
-import { Text, TouchableOpacity, View, Image, SafeAreaView, Button} from 'react-native';
+import { Text, TouchableOpacity, View, Image, SafeAreaView, Button, TouchableWithoutFeedback} from 'react-native';
 import style from '../style/stylesheet';
-import { Camera, CameraCapturedPicture, CameraView } from 'expo-camera';
+import { Camera, CameraCapturedPicture, CameraView, CameraType } from 'expo-camera';
 import { shareAsync } from 'expo-sharing';
 import * as MediaLibrary from 'expo-media-library';
 import { useEffect, useRef, useState } from 'react';
@@ -13,7 +13,19 @@ const HomeScreen = () => {
   const[hasCameraPermission, setHasCameraPermission] = useState<boolean | undefined>();
   const[hasMediaLibraryPermission, setHasMediaLibraryPermission] = useState<boolean | undefined>();
   const [photo, setPhoto] = useState<CameraCapturedPicture | undefined>(undefined);
+  const [cameraType, setCameraType] = useState<"front" | "back">("back");
 
+
+  const lastTap = useRef<number>(0);
+
+
+  const toggleCameraType = () => {
+    setCameraType((current) => (current === "back" ? "front" : "back"));
+  };
+  
+  
+  
+  
   useEffect(()=>{
     (async () => {
       const cameraPermission = await Camera.requestCameraPermissionsAsync();
@@ -26,7 +38,7 @@ const HomeScreen = () => {
   if(hasCameraPermission === undefined){
     return <Text>Dang cap phep su dung camera...</Text>
   }else if(!hasCameraPermission){
-    return <Text>Vui long cho phep su dung camera de tiep tuc su dung app</Text>
+    return <Text>Vui long vao cai dat cho phep su dung camera de tiep tuc su dung app</Text>
   }
 
 
@@ -64,11 +76,21 @@ if(photo){
 
   return (
     <View style={{ flex: 1 }}>
-      <CameraView style = {style.viewCamera} ref={camereRef}>
+      <TouchableWithoutFeedback onPress={()=>{
+        const now = Date.now();
+        if(now - lastTap.current < 300){
+          toggleCameraType();
+        }
+        lastTap.current = now;
+      }}>
+         <CameraView style = {style.viewCamera} ref={camereRef} facing={cameraType}>
+
           <TouchableOpacity onPress={takePic}>
               <Image source={require('./img/TakePhoto.png')} style = {style.buttoncontainer}/>
           </TouchableOpacity>
       </CameraView>
+      </TouchableWithoutFeedback>
+
 
       <View style={style.iconBar}>
       <TouchableOpacity onPress={() => navigation.navigate('Feed')}>
