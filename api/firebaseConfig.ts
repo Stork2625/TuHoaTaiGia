@@ -1,5 +1,8 @@
 import { initializeApp } from "firebase/app";
-import { initializeAuth, getReactNativePersistence } from "firebase/auth";
+import { initializeAuth } from "firebase/auth";
+// 👇 Đây là dòng quan trọng
+// @ts-ignore
+import { getReactNativePersistence } from "firebase/auth/react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const firebaseConfig = {
@@ -9,12 +12,11 @@ const firebaseConfig = {
   storageBucket: "camerago-app.appspot.com",
   messagingSenderId: "893445440610",
   appId: "1:893445440610:web:1f36e5a692724380aa3d3b",
-  measurementId: "G-XJMC15TYRD",
+  measurementId: "G-XJMC15TYRD"
 };
 
 const app = initializeApp(firebaseConfig);
 
-// 🔥 Dùng initializeAuth thay vì getAuth
 const auth = initializeAuth(app, {
   persistence: getReactNativePersistence(AsyncStorage),
 });
