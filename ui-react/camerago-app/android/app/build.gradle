@@ -1,0 +1,48 @@
+apply plugin: "com.android.application"
+apply plugin: "kotlin-android"
+
+android {
+    namespace "com.anonymous.cameregoapp"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.anonymous.cameregoapp"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+
+    signingConfigs {
+        // Cấu hình ký app release nếu bạn cần
+    }
+
+    buildTypes {
+        release {
+            // Bạn có thể chỉnh ở đây cho release build
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+    
+    // Enable hermes nếu muốn (khuyến nghị)
+    // def enableHermes = project.ext.react.get("enableHermes", false)
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    implementation("com.facebook.react:react-native") {
+        version {
+            strictly("0.79.2")
+        }
+        because("Resolve from local source instead of Maven")
+    }
+
+    implementation "androidx.multidex:multidex:2.0.1"
+    // Thêm các dependencies khác nếu bạn dùng
+}
+
+// Sử dụng React Native từ node_modules ở thư mục root
+apply from: file("../../node_modules/react-native/react.gradle")

@@ -1,0 +1,8 @@
+rootProject.name = 'camerago-app'
+
+include ':app'
+
+
+
+include(":react-native")
+project(":react-native").projectDir = file("../node_modules/react-native")

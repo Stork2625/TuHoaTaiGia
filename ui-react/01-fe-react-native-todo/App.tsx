@@ -7,7 +7,7 @@ import { HomeScreen } from './components/review/home';
 import { DetailsScreen } from './components/review/DetailsScreen';
 
 export default function App() {
-  const Stack = createNativeStackNavigator();
+  const Stack = createNativeStackNavigator(); 
   return (
     <NavigationContainer>
     <Stack.Navigator>

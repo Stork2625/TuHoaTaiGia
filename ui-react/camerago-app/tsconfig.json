@@ -1,6 +1,10 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true
+    "strict": true,
+    "jsx": "react-native",       // giúp TS hiểu JSX cho React Native
+    "noEmit": true,              // không sinh file JS khi build TS (Expo tự xử lý)
+    "esModuleInterop": true,     // tương thích import module phổ biến
+    "skipLibCheck": true         // bỏ qua kiểm tra thư viện để tăng tốc độ build
   }
 }

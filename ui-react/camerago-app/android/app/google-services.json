@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "893445440610",
+    "project_id": "camerago-app",
+    "storage_bucket": "camerago-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893445440610:android:f2c796669dd10703aa3d3b",
+        "android_client_info": {
+          "package_name": "com.anonymous.cameregoapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIEIzVvInYQpD_qoGomUK6TlexjPH7FxA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
