@@ -2,37 +2,48 @@ apply plugin: "com.android.application"
 apply plugin: "kotlin-android"
 
 android {
-    namespace "com.anonymous.cameregoapp"
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    namespace 'com.anonymous.cameregoapp' // Dùng Android Gradle Plugin 7+
 
-    defaultConfig {
-        applicationId "com.anonymous.cameregoapp"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
-        multiDexEnabled true
+    compileSdkVersion 35
+
+    buildFeatures {
+        buildConfig = true
     }
 
-    signingConfigs {
-        // Cấu hình ký app release nếu bạn cần
+    defaultConfig {
+        applicationId 'com.anonymous.cameregoapp'
+        minSdkVersion 21
+        targetSdkVersion 35
+        versionCode 1
+        versionName "1.0.0"
+        multiDexEnabled true
+
+        // Các biến buildConfig bạn dùng trong code Kotlin/Java
+        buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", "false"
+        buildConfigField "boolean", "IS_HERMES_ENABLED", "false"
     }
 
     buildTypes {
         release {
-            // Bạn có thể chỉnh ở đây cho release build
             minifyEnabled false
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
-    
-    // Enable hermes nếu muốn (khuyến nghị)
-    // def enableHermes = project.ext.react.get("enableHermes", false)
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+
     implementation("com.facebook.react:react-native") {
         version {
             strictly("0.79.2")
@@ -41,8 +52,6 @@ dependencies {
     }
 
     implementation "androidx.multidex:multidex:2.0.1"
-    // Thêm các dependencies khác nếu bạn dùng
 }
 
-// Sử dụng React Native từ node_modules ở thư mục root
 apply from: file("../../node_modules/react-native/react.gradle")

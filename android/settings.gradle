@@ -1,4 +1,4 @@
-rootProject.name = 'camerago-app'
+rootProject.name = 'main'
 
 include ':app'
 

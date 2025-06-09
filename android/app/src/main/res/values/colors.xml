@@ -1,10 +1,9 @@
 <resources>
-    <!-- Màu bạn đã có -->
-    <color name="purple_500">#6200EE</color>
-    <color name="purple_700">#3700B3</color>
-    <color name="teal_200">#03DAC5</color>
-
-    <!-- Thêm các màu thiếu -->
-    <color name="splashscreen_background">#FFFFFF</color> <!-- nền trắng ví dụ -->
-    <color name="iconBackground">#000000</color> <!-- nền đen ví dụ -->
+  <color name="purple_500">#6200EE</color>
+  <color name="purple_700">#3700B3</color>
+  <color name="teal_200">#03DAC5</color>
+  <color name="splashscreen_background">#FFFFFF</color>
+  <color name="iconBackground">#000000</color>
+  <color name="colorPrimary">#023c69</color>
+  <color name="colorPrimaryDark">#ffffff</color>
 </resources>

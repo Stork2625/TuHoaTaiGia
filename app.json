@@ -1,5 +1,7 @@
 {
-    "name": "main",
-    "displayName": "Camerego App"
+  "name": "main",
+  "displayName": "Camerego App",
+  "android": {
+    "package": "com.anonymous.cameregoapp"
   }
-  
+}

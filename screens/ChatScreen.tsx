@@ -3,8 +3,8 @@ import { Text, View } from 'react-native';
 const ChatScreen = ()=>{
     return(
         <View>
-            <Text >
-                Con Chac
+            <Text>
+                Home Screen
             </Text>
         </View>
     )
